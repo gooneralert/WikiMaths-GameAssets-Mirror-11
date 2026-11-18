@@ -1,0 +1,111 @@
+{
+  "slug": "chain-chillas",
+  "title": "Chain Chillas",
+  "type": "HTML",
+  "developer": "frogtoad",
+  "description": "Welcome to the World of Chain-Chillas This is a traditional marble rolling game, where your objective is to roll your way to the end of each stage. However, there's just one catch: you have to do it all while attached to a giant ball and chain! Collect coins, reach the goal, and roll your way through 80+ stages of increasing difficulty.",
+  "tags": [
+    "Casual",
+    "Puzzle",
+    "3D",
+    "Physics",
+    "Arcade",
+    "Singleplayer"
+  ],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "bf03e788-fb53-47f4-b2f3-e8859ccd1964",
+  "sourceVersion": "1",
+  "sourceUrl": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.html",
+  "baseUrl": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/",
+  "entry": "/index.html",
+  "entryUrl": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.html",
+  "status": "done",
+  "sizeBytes": 256178381,
+  "assetCount": 38,
+  "known404": [
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.wasm",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.pck",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.web.template_release.wasm32.nothreads.wasm",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.audio.position.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.wasm",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.audio.position.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.side.wasm",
+    "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.js"
+  ],
+  "failed": [
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.pck",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/index.pck",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.web.template_release.wasm32.nothreads.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.web.template_release.wasm32.nothreads.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.audio.position.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.audio.position.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.audio.position.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.audio.position.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/godot.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.side.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.side.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/bf03e788-fb53-47f4-b2f3-e8859ccd1964/1/.js",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-10-26T11:21:43.238Z",
+  "verifiedAt": "2026-11-16T14:14:59.456Z",
+  "verification": {
+    "external": 0,
+    "blocking": 0,
+    "ignoredExternal": 0,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 2,
+    "title": "Chain Chillas",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1264,
+      "height": 625
+    },
+    "nonBlack": 4096,
+    "screenshotNonBlack": null,
+    "rendered": true
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "dawnfolk",
+  "title": "Dawnfolk",
+  "type": "HTML",
+  "developer": "Darenn Keller",
+  "description": "In a world of darkness, you are the ruler of a kingdom lost to shadows. On a quest to save your people, you have found the mythical creature called \"Lueur,\" a fiery companion who will light your way. But what kind of ruler will you be? In Dawnfolk, you will explore an uncharted medieval fantasy world, manage resources, build cities, and survive against many dangers.",
+  "tags": [
+    "Building",
+    "Survival",
+    "Roguelite",
+    "Strategy",
+    "Pixel Graphics",
+    "Indie"
+  ],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "5cf40e49-29e2-441e-9228-ac8817288df4",
+  "sourceVersion": "1.0.15",
+  "sourceUrl": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/index.html",
+  "baseUrl": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/",
+  "entry": "/index.html",
+  "entryUrl": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/index.html",
+  "status": "done",
+  "sizeBytes": 325672201,
+  "assetCount": 18,
+  "known404": [
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.pck",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/index.pck",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.js",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/godot.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.side.wasm",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.worker.js",
+    "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.wasm"
+  ],
+  "failed": [
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.pck",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.pck",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/index.pck",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/index.pck",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/godot.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/godot.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.side.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.side.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.worker.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.worker.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/5cf40e49-29e2-441e-9228-ac8817288df4/1.0.15/.wasm",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-10-26T11:23:20.879Z",
+  "verifiedAt": "2026-11-16T15:13:50.254Z",
+  "verification": {
+    "external": 0,
+    "blocking": 0,
+    "ignoredExternal": 0,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 0,
+    "title": "Dawnfolk by Darenn Keller",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1264,
+      "height": 625
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.8393,
+    "rendered": true
+  }
+}

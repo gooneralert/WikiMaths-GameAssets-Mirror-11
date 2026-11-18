@@ -1,0 +1,85 @@
+{
+  "slug": "deltatraveler",
+  "title": "Deltatraveler",
+  "type": "HTML",
+  "developer": "",
+  "description": "",
+  "tags": [],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "truffled:/gamefile/deltatr.html",
+  "source": "truffled",
+  "sourceVersion": "1",
+  "sourceUrl": "https://truffled.lol/gamefile/deltatr.html",
+  "sourceThumbnail": "https://truffled.lol/png/games/deltatr.webp",
+  "baseUrl": "https://truffled.lol/gamefile/",
+  "entry": "/deltatr.html",
+  "entryUrl": "https://truffled.lol/gamefile/deltatr.html",
+  "status": "done",
+  "sizeBytes": 256922624,
+  "assetCount": 34,
+  "known404": [],
+  "failed": [
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/DELTAWEBGL.data.unityweb",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/DELTAWEBGL.data.unityweb",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/DELTAWEBGL.wasm.unityweb",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/DELTAWEBGL.wasm.unityweb",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/utils/strings.js",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/utils/strings.js",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/inflate.js",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/inflate.js",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/constants.js",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/constants.js",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/messages.js",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/messages.js",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/zstream.js",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/zstream.js",
+      "status": 403
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/inftrees.js",
+      "error": "HTTP 403 for https://cdn.jsdelivr.net/gh/genizy/web-port@main/deltatraveler/Build/zlib/inftrees.js",
+      "status": 403
+    }
+  ],
+  "mirroredAt": "2026-11-17T08:15:50.281Z",
+  "verifiedAt": "2026-11-17T08:16:01.133Z",
+  "verification": {
+    "external": 0,
+    "blocking": 0,
+    "ignoredExternal": 0,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 0,
+    "title": "Unity Web Player | DELTATRAVELER",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1264,
+      "height": 625
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.0162,
+    "rendered": true
+  }
+}
