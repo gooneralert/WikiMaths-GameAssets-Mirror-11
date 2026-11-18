@@ -1,0 +1,303 @@
+{
+  "slug": "drift-hunter",
+  "title": "Drift Hunter",
+  "type": "HTML",
+  "developer": "",
+  "description": "",
+  "tags": [],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "truffled:/gamefile/drift.html",
+  "source": "truffled",
+  "sourceVersion": "1",
+  "sourceUrl": "https://truffled.lol/gamefile/drift.html",
+  "sourceThumbnail": "https://truffled.lol/png/games/hunt.webp",
+  "baseUrl": "https://truffled.lol/gamefile/",
+  "entry": "/drift.html",
+  "entryUrl": "https://truffled.lol/gamefile/drift.html",
+  "status": "done",
+  "sizeBytes": 283914438,
+  "assetCount": 47,
+  "known404": [
+    "https://truffled.lol/gamefile/progressLogo.Light.png",
+    "https://truffled.lol/gamefile/progressFull.Light.png",
+    "https://truffled.lol/gamefile/progressEmpty.Light.png",
+    "https://truffled.lol/gamefile/progressLogo.Dark.png",
+    "https://truffled.lol/gamefile/progressFull.Dark.png",
+    "https://truffled.lol/gamefile/progressEmpty.Dark.png",
+    "https://truffled.lol/gamefile/webgl-logo.png",
+    "https://truffled.lol/gamefile/fullscreen.png",
+    "https://imasdk.googleapis.com/js/sdkloader/Iterator.prototype.map",
+    "https://imasdk.googleapis.com/js/sdkloader/outstream.min.js",
+    "https://imasdk.googleapis.com/js/sdkloader/.js",
+    "https://imasdk.googleapis.com/js/sdkloader/custom.elements.min.js",
+    "https://imasdk.googleapis.com/js/sdkloader/outstream.min.css",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/utils/common.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/utils/strings.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inflate.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/constants.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/inflate.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/messages.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/zstream.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/gzheader.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/crc32.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/adler32.js",
+    "https://cdn.jsdelivr.net/gh/st39/sdk@main/lib/main.js",
+    "https://rawcdn.githack.com/index.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inftrees.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inffast.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/decompress.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/bit_reader.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/context.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/decode.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary.bin.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary-browser.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dictionary.bin.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/huffman.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/transform.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/prefix.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/streams.js",
+    "https://www.googletagservices.com/pubads_impl.js",
+    "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/node_modules/base64-js/index.js"
+  ],
+  "failed": [
+    {
+      "url": "https://truffled.lol/gamefile/progressLogo.Light.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/progressLogo.Light.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/progressFull.Light.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/progressFull.Light.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/progressEmpty.Light.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/progressEmpty.Light.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/progressLogo.Dark.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/progressLogo.Dark.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/progressFull.Dark.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/progressFull.Dark.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/progressEmpty.Dark.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/progressEmpty.Dark.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/webgl-logo.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/webgl-logo.png",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/gamefile/fullscreen.png",
+      "error": "HTTP 404 for https://truffled.lol/gamefile/fullscreen.png",
+      "status": 404
+    },
+    {
+      "url": "https://imasdk.googleapis.com/js/sdkloader/Iterator.prototype.map",
+      "error": "HTTP 404 for https://imasdk.googleapis.com/js/sdkloader/Iterator.prototype.map",
+      "status": 404
+    },
+    {
+      "url": "https://imasdk.googleapis.com/js/sdkloader/outstream.min.js",
+      "error": "HTTP 404 for https://imasdk.googleapis.com/js/sdkloader/outstream.min.js",
+      "status": 404
+    },
+    {
+      "url": "https://imasdk.googleapis.com/js/sdkloader/.js",
+      "error": "HTTP 404 for https://imasdk.googleapis.com/js/sdkloader/.js",
+      "status": 404
+    },
+    {
+      "url": "https://imasdk.googleapis.com/js/sdkloader/custom.elements.min.js",
+      "error": "HTTP 404 for https://imasdk.googleapis.com/js/sdkloader/custom.elements.min.js",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/st39/package.json",
+      "error": "HTTP 400 for https://cdn.jsdelivr.net/gh/st39/package.json",
+      "status": 400
+    },
+    {
+      "url": "https://imasdk.googleapis.com/js/sdkloader/outstream.min.css",
+      "error": "HTTP 404 for https://imasdk.googleapis.com/js/sdkloader/outstream.min.css",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/utils/common.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/utils/common.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/utils/strings.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/utils/strings.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inflate.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inflate.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/constants.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/constants.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/inflate.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/inflate.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/messages.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/messages.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/zstream.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/zstream.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/gzheader.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/gzheader.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/crc32.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/crc32.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/adler32.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/adler32.js",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/st39/sdk@main/lib/main.js",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/st39/sdk@main/lib/main.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/index.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/index.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inftrees.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inftrees.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inffast.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/zlib/inffast.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/decompress.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/decompress.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/bit_reader.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/bit_reader.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/context.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/context.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/decode.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/decode.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary.bin.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary.bin.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary-browser.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/dictionary-browser.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dictionary.bin.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dictionary.bin.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/huffman.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/huffman.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/transform.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/transform.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/prefix.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/prefix.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/streams.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/dec/streams.js",
+      "status": 404
+    },
+    {
+      "url": "https://www.googletagservices.com/pubads_impl.js",
+      "error": "HTTP 404 for https://www.googletagservices.com/pubads_impl.js",
+      "status": 404
+    },
+    {
+      "url": "https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/node_modules/base64-js/index.js",
+      "error": "HTTP 404 for https://rawcdn.githack.com/unxa/unxa.github.io/976db99398423b4e5a8b327892c2b57b6a5b766f/g/drift-hunters/node_modules/base64-js/index.js",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-11-17T08:45:40.592Z",
+  "verifiedAt": "2026-11-17T08:46:48.199Z",
+  "verification": {
+    "external": 3,
+    "blocking": 0,
+    "ignoredExternal": 3,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 1,
+    "title": "",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1264,
+      "height": 625
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.9821,
+    "rendered": true
+  }
+}
