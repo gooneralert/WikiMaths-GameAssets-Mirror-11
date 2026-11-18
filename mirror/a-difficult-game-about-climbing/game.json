@@ -1,0 +1,75 @@
+{
+  "slug": "a-difficult-game-about-climbing",
+  "title": "A Difficult Game About Climbing",
+  "type": "HTML",
+  "developer": "",
+  "description": "",
+  "tags": [],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "truffled:/gamefile/adgac.html",
+  "source": "truffled",
+  "sourceVersion": "1",
+  "sourceUrl": "https://truffled.lol/gamefile/adgac.html",
+  "sourceThumbnail": "https://truffled.lol/png/games/adgac.webp",
+  "baseUrl": "https://truffled.lol/gamefile/",
+  "entry": "/adgac.html",
+  "entryUrl": "https://truffled.lol/gamefile/adgac.html",
+  "status": "done",
+  "sizeBytes": 329409133,
+  "assetCount": 30,
+  "known404": [
+    "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/Build/adgac.data",
+    "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/gtagwebR2.data",
+    "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/Build/adgac.wasm",
+    "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/gtagwebR2.wasm"
+  ],
+  "failed": [
+    {
+      "url": "https://cdn.jsdelivr.net/adgac.loader.js",
+      "error": "HTTP 400 for https://cdn.jsdelivr.net/adgac.loader.js",
+      "status": 400
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/Build/adgac.data",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/adgac@main/Build/adgac.data",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/gtagwebR2.data",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/adgac@main/gtagwebR2.data",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/Build/adgac.wasm",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/adgac@main/Build/adgac.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/adgac@main/gtagwebR2.wasm",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/adgac@main/gtagwebR2.wasm",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-10-30T14:12:38.360Z",
+  "verifiedAt": "2026-11-16T12:42:15.898Z",
+  "verification": {
+    "external": 1,
+    "blocking": 0,
+    "ignoredExternal": 1,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 0,
+    "title": "Unity WebGL Player | A Difficult Game About Climbing",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1264,
+      "height": 625
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.0119,
+    "rendered": true
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "mirror/pizza-tower/game.unx": {
+    "size": 265663383,
+    "parts": [
+      {
+        "path": "mirror/pizza-tower/game.unx.part001",
+        "size": 90000000
+      },
+      {
+        "path": "mirror/pizza-tower/game.unx.part002",
+        "size": 90000000
+      },
+      {
+        "path": "mirror/pizza-tower/game.unx.part003",
+        "size": 85663383
+      }
+    ]
+  },
+  "mirror/bat-to-the-heavens/index.pck": {
+    "size": 270575744,
+    "parts": [
+      {
+        "path": "mirror/bat-to-the-heavens/index.pck.part001",
+        "size": 90000000
+      },
+      {
+        "path": "mirror/bat-to-the-heavens/index.pck.part002",
+        "size": 90000000
+      },
+      {
+        "path": "mirror/bat-to-the-heavens/index.pck.part003",
+        "size": 90000000
+      },
+      {
+        "path": "mirror/bat-to-the-heavens/index.pck.part004",
+        "size": 575744
+      }
+    ]
+  }
+}

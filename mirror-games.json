@@ -1,0 +1,445 @@
+[
+  {
+    "slug": "chain-chillas",
+    "title": "Chain Chillas",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "frogtoad",
+    "description": "Welcome to the World of Chain-Chillas This is a traditional marble rolling game, where your objective is to roll your way to the end of each stage. However, there's just one catch: you have to do it all while attached to a giant ball and chain! Collect coins, reach the goal, and roll your way through 80+ stages of increasing difficulty.",
+    "tags": [
+      "Casual",
+      "Puzzle",
+      "3D",
+      "Physics",
+      "Arcade",
+      "Singleplayer"
+    ],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 256178381,
+    "thumbnail": "/thumbs/obsidian/chain-chillas.webp"
+  },
+  {
+    "slug": "deltatraveler",
+    "title": "Deltatraveler",
+    "type": "HTML",
+    "entry": "/deltatr.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 256922624,
+    "thumbnail": ""
+  },
+  {
+    "slug": "fnaf-world",
+    "title": "FNaF World",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "Scott Cawthon",
+    "description": "Featuring the entire cast from the Five Nights at Freddy's series, this fantasy RPG will let players control their favorite animatronics in a an epic animated adventure!",
+    "tags": [
+      "Horror",
+      "Point & Click",
+      "Indie",
+      "Strategy",
+      "Survival"
+    ],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 263529502,
+    "thumbnail": "/thumbs/obsidian/fnaf-world.webp"
+  },
+  {
+    "slug": "drift-hunter",
+    "title": "Drift Hunter",
+    "type": "HTML",
+    "entry": "/drift.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 283914438,
+    "thumbnail": "/thumbs/truffled/drift-hunter.webp"
+  },
+  {
+    "slug": "jenny",
+    "title": "JENNY",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "Impossible Things",
+    "description": "\"Unauthorized protective equipment constitutes obstruction of suffering. Regulation requires unmitigated harm.\" Jenny Jeungman's little town buckles under bureaucracy and post-lapinist architecture more aligned with the tastes of demons than rabbits. Now she's caught in a system that rewrites reality and it's up to HER (you) to stop this lunacy! Say hi, Jenny! Die.",
+    "tags": [
+      "Shooter",
+      "Action",
+      "Top-Down",
+      "Arcade",
+      "Indie"
+    ],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 284749950,
+    "thumbnail": "/thumbs/obsidian/jenny.webp"
+  },
+  {
+    "slug": "pizza-tower",
+    "title": "Pizza Tower",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 51612302,
+    "thumbnail": ""
+  },
+  {
+    "slug": "half-life-2",
+    "title": "Half-Life 2",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "Valve",
+    "description": "Reawakened from stasis in the occupied metropolis of City 17, Gordon Freeman is joined by Alyx Vance as he leads a desperate human resistance. Experience the landmark first-person shooter packed with immersive world-building, boundary-pushing physics, and exhilarating combat.",
+    "tags": [
+      "FPS",
+      "Action-Adventure",
+      "Atmospheric",
+      "Shooter",
+      "Sci-Fi"
+    ],
+    "controls": [
+      {
+        "action": "Forward",
+        "keys": [
+          {
+            "key": "KeyW",
+            "keyCode": 87
+          }
+        ]
+      },
+      {
+        "action": "Backward",
+        "keys": [
+          {
+            "key": "KeyS",
+            "keyCode": 83
+          }
+        ]
+      },
+      {
+        "action": "Right",
+        "keys": [
+          {
+            "key": "KeyD",
+            "keyCode": 68
+          }
+        ]
+      },
+      {
+        "action": "Left",
+        "keys": [
+          {
+            "key": "KeyA",
+            "keyCode": 65
+          }
+        ]
+      },
+      {
+        "action": "Jump",
+        "keys": [
+          {
+            "key": "Space",
+            "keyCode": 32
+          }
+        ]
+      },
+      {
+        "action": "Crouch",
+        "keys": [
+          {
+            "key": "ControlLeft",
+            "keyCode": 17
+          }
+        ]
+      },
+      {
+        "action": "Use/Interact",
+        "keys": [
+          {
+            "key": "KeyE",
+            "keyCode": 69
+          }
+        ]
+      },
+      {
+        "action": "Reload",
+        "keys": [
+          {
+            "key": "KeyR",
+            "keyCode": 82
+          }
+        ]
+      },
+      {
+        "action": "Flashlight",
+        "keys": [
+          {
+            "key": "KeyF",
+            "keyCode": 70
+          }
+        ]
+      },
+      {
+        "action": "Quick Switch Weapon",
+        "keys": [
+          {
+            "key": "KeyQ",
+            "keyCode": 81
+          }
+        ]
+      },
+      {
+        "action": "Pause",
+        "keys": [
+          {
+            "key": "Escape",
+            "keyCode": 27
+          }
+        ]
+      }
+    ],
+    "gamepadControls": [
+      {
+        "action": "Forward",
+        "axes": [
+          {
+            "index": 1,
+            "direction": -1
+          }
+        ]
+      },
+      {
+        "action": "Backward",
+        "axes": [
+          {
+            "index": 1,
+            "direction": 1
+          }
+        ]
+      },
+      {
+        "action": "Right",
+        "axes": [
+          {
+            "index": 0,
+            "direction": 1
+          }
+        ]
+      },
+      {
+        "action": "Left",
+        "axes": [
+          {
+            "index": 0,
+            "direction": -1
+          }
+        ]
+      },
+      {
+        "action": "Jump",
+        "buttons": [
+          0
+        ]
+      },
+      {
+        "action": "Crouch",
+        "buttons": [
+          1
+        ]
+      },
+      {
+        "action": "Use/Interact",
+        "buttons": [
+          2
+        ]
+      },
+      {
+        "action": "Reload",
+        "buttons": [
+          2
+        ]
+      },
+      {
+        "action": "Flashlight",
+        "buttons": [
+          12
+        ]
+      },
+      {
+        "action": "Pause",
+        "buttons": [
+          9
+        ]
+      }
+    ],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 297096276,
+    "thumbnail": "/thumbs/obsidian/half-life-2.webp"
+  },
+  {
+    "slug": "bat-to-the-heavens",
+    "title": "Bat to the Heavens",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "ceroro",
+    "description": "Your hometown has grown quieter over the years. It's time to leave, and the only way out is up! But can you even make it to the end? A bat and your wits are all you need to surpass any obstacle! Climb to the heavens, and discover the secrets across the valley in this challenging puzzle - execution - momentum game!",
+    "tags": [
+      "Platformer",
+      "Puzzle",
+      "Cute",
+      "Minimalist",
+      "Indie",
+      "Singleplayer"
+    ],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 306409432,
+    "thumbnail": "/thumbs/obsidian/bat-to-the-heavens.webp"
+  },
+  {
+    "slug": "scp-secret-laboratory",
+    "title": "SCP: Secret Laboratory",
+    "type": "HTML",
+    "entry": "/scp.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 311735673,
+    "thumbnail": ""
+  },
+  {
+    "slug": "resident-evil-1",
+    "title": "Resident Evil 1",
+    "type": "HTML",
+    "entry": "/res1.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 323626306,
+    "thumbnail": "/thumbs/truffled/resident-evil-1.webp"
+  },
+  {
+    "slug": "dawnfolk",
+    "title": "Dawnfolk",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "Darenn Keller",
+    "description": "In a world of darkness, you are the ruler of a kingdom lost to shadows. On a quest to save your people, you have found the mythical creature called \"Lueur,\" a fiery companion who will light your way. But what kind of ruler will you be? In Dawnfolk, you will explore an uncharted medieval fantasy world, manage resources, build cities, and survive against many dangers.",
+    "tags": [
+      "Building",
+      "Survival",
+      "Roguelite",
+      "Strategy",
+      "Pixel Graphics",
+      "Indie"
+    ],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 325672201,
+    "thumbnail": "/thumbs/obsidian/dawnfolk.webp"
+  },
+  {
+    "slug": "pizza-tower-scoutdigo",
+    "title": "Pizza Tower: Scoutdigo",
+    "type": "HTML",
+    "entry": "/pts.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 325879546,
+    "thumbnail": "/thumbs/truffled/pizza-tower-scoutdigo.webp"
+  },
+  {
+    "slug": "a-difficult-game-about-climbing",
+    "title": "A Difficult Game About Climbing",
+    "type": "HTML",
+    "entry": "/adgac.html",
+    "developer": "",
+    "description": "",
+    "tags": [],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 329409133,
+    "thumbnail": ""
+  },
+  {
+    "slug": "granny-chapter-two",
+    "title": "Granny: Chapter Two",
+    "type": "HTML",
+    "entry": "/index.html",
+    "developer": "DVloper",
+    "description": "Welcome to Granny: Chapter Two. Now it's time again! You have now been moved from Granny`s old house to her love Grandpa`s house. You wake up in another dark moisty room, you feel dizzy after the bumpy car ride and you have a headache.",
+    "tags": [
+      "Horror",
+      "Survival",
+      "Puzzle",
+      "Difficult",
+      "Singleplayer",
+      "Dark"
+    ],
+    "controls": [],
+    "gamepadControls": [],
+    "controllerSupport": false,
+    "onlineOnly": false,
+    "status": "done",
+    "sizeBytes": 338291769,
+    "thumbnail": "/thumbs/obsidian/granny-chapter-two.webp"
+  }
+]

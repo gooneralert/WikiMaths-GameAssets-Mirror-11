@@ -1,0 +1,105 @@
+{
+  "slug": "bat-to-the-heavens",
+  "title": "Bat to the Heavens",
+  "type": "HTML",
+  "developer": "ceroro",
+  "description": "Your hometown has grown quieter over the years. It's time to leave, and the only way out is up! But can you even make it to the end? A bat and your wits are all you need to surpass any obstacle! Climb to the heavens, and discover the secrets across the valley in this challenging puzzle - execution - momentum game!",
+  "tags": [
+    "Platformer",
+    "Puzzle",
+    "Cute",
+    "Minimalist",
+    "Indie",
+    "Singleplayer"
+  ],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "69786317-3f45-434f-aa8d-e111cec5937a",
+  "sourceVersion": "1",
+  "sourceUrl": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/index.html",
+  "baseUrl": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/",
+  "entry": "/index.html",
+  "entryUrl": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/index.html",
+  "status": "done",
+  "sizeBytes": 306409432,
+  "assetCount": 14,
+  "known404": [
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.wav",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.mp3",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.ogg",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/godot.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.worker.js",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.side.wasm",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.js",
+    "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.wasm"
+  ],
+  "failed": [
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.wav",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.wav",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.mp3",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.mp3",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.ogg",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.ogg",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/godot.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/godot.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.worker.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.worker.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.side.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.side.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/69786317-3f45-434f-aa8d-e111cec5937a/1/.wasm",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-10-26T11:07:03.335Z",
+  "verifiedAt": "2026-11-16T13:42:08.652Z",
+  "verification": {
+    "external": 0,
+    "blocking": 0,
+    "ignoredExternal": 0,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 1,
+    "title": "bat to the heavens",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1264,
+      "height": 625
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.5806,
+    "rendered": true
+  }
+}
