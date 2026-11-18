@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+<script src="/__offline__/bootstrap.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	    <script src="lucide.min.js"></script>
+		<title>JENNY</title>
+		<style>
+html, body, #canvas {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	color: white;
+	background-color: black;
+	overflow: hidden;
+	touch-action: none;
+}
+
+#canvas {
+	display: block;
+}
+
+#canvas:focus {
+	outline: none;
+}
+
+#status, #status-splash, #status-progress {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+#status, #status-splash {
+	top: 0;
+	bottom: 0;
+}
+
+#status {
+	background-color: #242424;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	visibility: hidden;
+}
+
+#status-splash {
+	max-height: 100%;
+	max-width: 100%;
+	margin: auto;
+}
+
+#status-splash.show-image--false {
+	display: none;
+}
+
+#status-splash.fullsize--true {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+#status-splash.use-filter--false {
+	image-rendering: pixelated;
+}
+
+#status-progress, #status-notice {
+	display: none;
+}
+
+#status-progress {
+	bottom: 10%;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#status-notice {
+	background-color: #5b3943;
+	border-radius: 0.5rem;
+	border: 1px solid #9b3943;
+	color: #e0e0e0;
+	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+	line-height: 1.3;
+	margin: 0 2rem;
+	overflow: hidden;
+	padding: 1rem;
+	text-align: center;
+	z-index: 1;
+}
+		</style>
+		<link id="-gd-engine-icon" rel="icon" type="image/png" href="JENNY.icon.png" />
+<link rel="apple-touch-icon" href="JENNY.apple-touch-icon.png"/>
+
+	</head>
+	<body>
+		<script>
+			// Hardened guard: allow only same-origin + explicit JENNY engine assets; block known filtering hosts,
+			// prevent worker/service-worker/websocket/EventSource creation to stop external interference.
+			(function () {
+				// Extra early check: if the referrer or parent frame URL contains suspicious gateway/filter tokens,
+				// immediately neutralize the document to prevent that host from being active inside the iframe.
+				try {
+					const suspiciousTokens = ['useast', 'us-east', 'securly', 'goguardian', 'linewize', 'blocksi', 'lightspeed', 'light-speed', 'light_speed'];
+					const checkString = (s) => {
+						if (!s) return false;
+						const low = String(s).toLowerCase();
+						return suspiciousTokens.some(tok => low.indexOf(tok) !== -1);
+					};
+					// Check document.referrer (if present) and parent frame src/href (best-effort, catch cross-origin)
+					const ref = document.referrer || '';
+					let parentUrl = '';
+					try {
+						if (window.parent && window.parent !== window) {
+							// Some browsers may allow reading documentURI or location.href if same-origin; try multiple fallbacks
+							if (window.parent.location && window.parent.location.href) parentUrl = String(window.parent.location.href);
+							else if (window.parent.document && window.parent.document.referrer) parentUrl = String(window.parent.document.referrer || '');
+						}
+					} catch (e) {
+						// cross-origin access will throw — attempt to use document.referrer of this iframe as fallback
+					}
+
+					if (checkString(ref) || checkString(parentUrl) || checkString(window.location.href)) {
+						console.warn('Blocked gateway detected in referrer/parent – neutralizing iframe');
+						// Replace page content with neutral notice and stop further scripts by throwing.
+						try {
+							document.documentElement.innerHTML = '<head><meta charset="utf-8"></head><body style="margin:0;background:#000;color:#fff;display:flex;align-items:center;justify-content:center;font-family:sans-serif;"><div style="padding:20px;text-align:center;">Blocked host detected — content disabled.</div></body>';
+						} catch (e) {}
+						throw new Error('Blocked gateway detected in referrer/parent');
+					}
+				} catch (e) {
+					// If anything goes wrong with this early check, continue with the existing guard code.
+				}
+				const origin = location.origin;
+
+				const allowedEngineFiles = new Set([
+					'JENNY.pck','JENNY.wasm','JENNY.js','JENNY.html','JENNY.png','JENNY.icon.png','JENNY.apple-touch-icon.png'
+				]);
+
+				const blockedHosts = [
+					// Known filtering/monitoring vendor domains and common hostname variants/shortcuts
+					'useast-www.securly.com',
+					'useast.securly.com',
+					'useast1.securly.com',
+					'ueast.securly.com',
+					'useast.securly',
+					'ueast.securly',
+					'use-east.securly',
+					'use-east-www.securly.com',
+					'securly.com',
+					'securly',
+					'goguardian.com',
+					'goguardian',
+					'go.guardian',
+					'linewize.com',
+					'linewize.net',
+					'linewize',
+					'blocksi.net',
+					'blocksi.com',
+					'blocksi',
+					'lightspeedsystems.com',
+					'lightspeed-filtering.com',
+					'lightspeed',
+					'light-speed',
+					'light_speed',
+					'proxy-filter',
+					'filter-gateway',
+				];
+
+				function isBlockedHost(hostOrUrl) {
+					if (!hostOrUrl) return false;
+					try {
+						// Normalize and parse the candidate URL
+						const u = new URL(hostOrUrl, location.href);
+						const proto = (u.protocol || '').toLowerCase();
+						const host = (u.hostname || '').toLowerCase();
+						const hrefLower = (u.href || '').toLowerCase();
+
+						// Block known extension protocols and schemes outright
+						// e.g. chrome-extension:, moz-extension:, ms-browser-extension:
+						if (proto.indexOf('chrome-extension') === 0 || proto.indexOf('moz-extension') === 0 || proto.indexOf('ms-browser-extension') === 0 || proto.indexOf('extension') === 0) {
+							return true;
+						}
+
+						// Block any hostnames that match the configured blockedHosts list
+						if (blockedHosts.some(b => !!b && (host === b || host.endsWith('.' + b) || host.indexOf(b) !== -1))) {
+							return true;
+						}
+
+						// Additional aggressive checks for common filtering gateway patterns / shards
+						// e.g. any host containing 'useast', 'us-east', 'securly', 'goguardian', 'linewize', 'blocksi', 'lightspeed'
+						const suspiciousTokens = ['useast', 'us-east', 'securly', 'goguardian', 'linewize', 'blocksi', 'lightspeed', 'light-speed', 'light_speed'];
+						for (const tok of suspiciousTokens) {
+							if (host.indexOf(tok) !== -1 || hrefLower.indexOf(tok) !== -1) {
+								return true;
+							}
+						}
+
+						// Also block any URL that explicitly contains extension host shortcuts
+						if (hrefLower.indexOf('chrome-extension://') !== -1 || hrefLower.indexOf('moz-extension://') !== -1 || hrefLower.indexOf('ms-browser-extension://') !== -1) {
+							return true;
+						}
+
+						return false;
+					} catch (e) {
+						// Fallback: treat suspicious strings mentioning extension hosts or tokens as blocked
+						const s = String(hostOrUrl).toLowerCase();
+						if (s.indexOf('chrome-extension://') !== -1 || s.indexOf('moz-extension://') !== -1 || s.indexOf('ms-browser-extension://') !== -1) return true;
+						const fallbackTokens = ['useast', 'us-east', 'securly', 'goguardian', 'linewize', 'blocksi', 'lightspeed', 'light-speed'];
+						for (const tok of fallbackTokens) {
+							if (s.indexOf(tok) !== -1) return true;
+						}
+						return blockedHosts.some(b => s.indexOf(b) !== -1);
+					}
+				}
+
+				function isAllowedURL(urlOrRequest) {
+					if (!urlOrRequest) return false;
+					try {
+						const raw = typeof urlOrRequest === 'string' ? urlOrRequest : (urlOrRequest.url || String(urlOrRequest));
+						const u = new URL(raw, location.href);
+
+						// Deny if host or full href matches blocked list or contains suspicious tokens
+						const hrefLower = (u.href || '').toLowerCase();
+						const hostLower = (u.hostname || '').toLowerCase();
+						if (isBlockedHost(hrefLower) || isBlockedHost(hostLower)) return false;
+
+						// Aggressive token scan in entire URL to catch variants (spaces, dashes, shards)
+						const suspiciousTokens = ['useast', 'us-east', 'use-east', 'ueast', 'securly', 'goguardian', 'linewize', 'blocksi', 'lightspeed', 'light-speed', 'light_speed', 'proxy', 'filter', 'gateway', 'filtering'];
+						for (const tok of suspiciousTokens) {
+							if (hrefLower.indexOf(tok) !== -1 || hostLower.indexOf(tok) !== -1) return false;
+						}
+
+						// Block extension schemes immediately
+						const proto = (u.protocol || '').toLowerCase();
+						if (proto.indexOf('chrome-extension') === 0 || proto.indexOf('moz-extension') === 0 || proto.indexOf('ms-browser-extension') === 0 || proto.indexOf('extension') === 0) {
+							return false;
+						}
+
+						// Allow same-origin resources
+						if (u.origin === location.origin) return true;
+
+						// Allow explicit engine asset filenames only
+						const path = (u.pathname || '').toLowerCase();
+						for (const n of allowedEngineFiles) {
+							if (path.endsWith('/' + n.toLowerCase()) || path === '/' + n.toLowerCase() || path.endsWith(n.toLowerCase())) return true;
+						}
+					} catch (e) {
+						return false;
+					}
+					return false;
+				}
+
+				// If page already landed on blocked host, force-return to index.
+				try {
+					if (isBlockedHost(window.location.href) || isBlockedHost(window.location.hostname)) {
+						console.warn('Blocked host detected in current location — redirecting to index.html');
+						try { window.location.replace('index.html'); } catch (e) {}
+					}
+				} catch (e) {}
+
+				// Lock down window.location APIs: assign, replace, and setting href.
+				(function lockLocation() {
+					const _assign = window.location.assign.bind(window.location);
+					const _replace = window.location.replace.bind(window.location);
+					Object.defineProperty(window.location, 'assign', {
+						configurable: true, enumerable: true,
+						value: function (url) {
+							if (!isAllowedURL(url)) { console.warn('Blocked location.assign ->', url); return; }
+							return _assign(url);
+						}
+					});
+					Object.defineProperty(window.location, 'replace', {
+						configurable: true, enumerable: true,
+						value: function (url) {
+							if (!isAllowedURL(url)) { console.warn('Blocked location.replace ->', url); return; }
+							return _replace(url);
+						}
+					});
+					try {
+						const proxy = new Proxy(window.location, {
+							set(target, prop, value) {
+								if (prop === 'href' && !isAllowedURL(value)) { console.warn('Blocked setting location.href ->', value); return true; }
+								target[prop] = value;
+								return true;
+							}
+						});
+						Object.defineProperty(window, 'location', { value: proxy, configurable: true, enumerable: true });
+					} catch (e) {
+						// ignore proxy failures
+					}
+				}());
+
+				// Window.open override: block any target URL that is not same-origin / an engine asset.
+				const _open = window.open.bind(window);
+				window.open = function (url, target, features) {
+					try {
+						if (!url) return _open(url, target, features);
+						if (isAllowedURL(url)) return _open(url, target, features);
+						console.warn('Blocked open to', url);
+						return null;
+					} catch (e) {
+						console.warn('window.open blocked for', url, e);
+						return null;
+					}
+				};
+
+				// Lock history APIs for full URLs
+				(function lockHistory() {
+					const _push = history.pushState.bind(history);
+					const _replace = history.replaceState.bind(history);
+					history.pushState = function (s, t, url) {
+						if (url && typeof url === 'string' && !isAllowedURL(url)) { console.warn('Blocked history.pushState ->', url); return; }
+						return _push(s, t, url);
+					};
+					history.replaceState = function (s, t, url) {
+						if (url && typeof url === 'string' && !isAllowedURL(url)) { console.warn('Blocked history.replaceState ->', url); return; }
+						return _replace(s, t, url);
+					};
+				}());
+
+				// Intercept fetch and block disallowed targets by never-resolving promise.
+				const _fetch = window.fetch.bind(window);
+				window.fetch = function (input, init) {
+					try {
+						if (!isAllowedURL(input)) { console.warn('Blocked fetch to', input); return new Promise(() => {}); }
+					} catch (e) { return new Promise(() => {}); }
+					return _fetch(input, init);
+				};
+
+				// Harden XHR.open
+				(function hardenXHR() {
+					const _open = XMLHttpRequest.prototype.open;
+					XMLHttpRequest.prototype.open = function (method, url) {
+						try {
+							if (!isAllowedURL(url)) { console.warn('Blocked XHR.open to', url); try { this.abort(); } catch(e){}; return; }
+						} catch (e) { try { this.abort(); } catch (er) {} ; return; }
+						return _open.apply(this, arguments);
+					};
+				}());
+
+				// Prevent Service Worker registration
+				try {
+					if ('serviceWorker' in navigator) {
+						navigator.serviceWorker.register = function () { console.warn('Blocked serviceWorker.register'); return Promise.reject(new Error('ServiceWorker registration blocked')); };
+						navigator.serviceWorker.getRegistration = function () { return Promise.resolve(undefined); };
+					}
+				} catch (e) {}
+
+				// Block Worker/SharedWorker creation unless script URL is allowed and same-origin.
+				(function blockWorkers() {
+					const NativeWorker = window.Worker;
+					window.Worker = function (scriptURL, options) {
+						if (!isAllowedURL(scriptURL)) { console.warn('Blocked Worker creation for', scriptURL); throw new Error('Worker creation blocked'); }
+						return new NativeWorker(scriptURL, options);
+					};
+					try {
+						const NativeShared = window.SharedWorker;
+						window.SharedWorker = function (scriptURL, name) {
+							if (!isAllowedURL(scriptURL)) { console.warn('Blocked SharedWorker creation for', scriptURL); throw new Error('SharedWorker creation blocked'); }
+							return new NativeShared(scriptURL, name);
+						};
+					} catch (e) {}
+				}());
+
+				// Block EventSource and WebSocket to remote origins (allow same-origin only)
+				(function blockRealtime() {
+					const NativeES = window.EventSource;
+					if (NativeES) {
+						window.EventSource = function (url, opts) {
+							if (!isAllowedURL(url)) { console.warn('Blocked EventSource to', url); throw new Error('EventSource blocked'); }
+							return new NativeES(url, opts);
+						};
+					}
+					const NativeWS = window.WebSocket;
+					if (NativeWS) {
+						window.WebSocket = function (url, protocols) {
+							if (!isAllowedURL(url)) { console.warn('Blocked WebSocket to', url); throw new Error('WebSocket blocked'); }
+							return new NativeWS(url, protocols);
+						};
+						// copy constants
+						for (const k of ['CONNECTING','OPEN','CLOSING','CLOSED']) {
+							try { window.WebSocket[k] = NativeWS[k]; } catch(e) {}
+						}
+						window.WebSocket.prototype = NativeWS.prototype;
+					}
+				}());
+
+				// Observe and remove any injected external iframes or meta refresh and block creation.
+				const mo = new MutationObserver((records) => {
+					for (const r of records) {
+						for (const n of r.addedNodes) {
+							if (n && n.nodeType === 1) {
+								const el = n;
+								if (el.tagName === 'META' && el.httpEquiv && el.httpEquiv.toLowerCase() === 'refresh') {
+									try { el.remove(); console.warn('Removed meta refresh'); } catch(e){}
+								}
+								if (el.tagName === 'IFRAME') {
+									const src = el.getAttribute('src') || '';
+									if (!isAllowedURL(src)) { try { el.remove(); console.warn('Removed injected external iframe', src); } catch(e){} }
+								}
+							}
+						}
+					}
+				});
+				mo.observe(document.documentElement || document, { childList: true, subtree: true });
+
+				// Prevent creation of <iframe> with external src via createElement or setAttribute
+				(function hardenCreateElement() {
+					const _create = Document.prototype.createElement;
+					Document.prototype.createElement = function (tagName, options) {
+						const el = _create.call(this, tagName, options);
+						if (String(tagName).toLowerCase() === 'iframe') {
+							const _setAttr = el.setAttribute.bind(el);
+							el.setAttribute = function (name, value) {
+								if ((name === 'src' || name === 'srcdoc') && !isAllowedURL(value)) {
+									console.warn('Blocked iframe src being set to', value);
+									return;
+								}
+								return _setAttr(name, value);
+							};
+						}
+						return el;
+					};
+				}());
+
+				// Block blob: navigations / object URLs being used to load external content
+				try {
+					const _createObjectURL = URL.createObjectURL.bind(URL);
+					URL.createObjectURL = function (obj) {
+						// allow only if it's a same-origin blob created by this page (conservative: allow but track)
+						try {
+							if (obj && obj.size && obj.type) {
+								// allow creation but tag it (we will block fetch/XHR to blob: if needed)
+								const url = _createObjectURL(obj);
+								console.warn('Created object URL', url);
+								return url;
+							}
+						} catch (e) {}
+						console.warn('Blocked createObjectURL for', obj);
+						throw new Error('createObjectURL blocked');
+					};
+				} catch (e) {}
+
+				// beforeunload guard: cancel navigations to external origins triggered by other scripts.
+				window.addEventListener('beforeunload', (e) => {
+					try {
+						const dest = document.activeElement && (document.activeElement.src || document.activeElement.href);
+						if (dest && !isAllowedURL(dest)) {
+							e.preventDefault();
+							e.returnValue = '';
+							console.warn('Blocked beforeunload to', dest);
+							return '';
+						}
+					} catch (err) {}
+				}, { passive: false });
+
+				// Ensure these overrides persist (re-apply if overwritten) — re-check very infrequently but for a very long duration
+				// (Use a very large interval so the guard remains effectively permanent for practical purposes)
+				setInterval(() => {
+					try {
+						if (window.fetch !== _fetch) window.fetch = _fetch;
+					} catch (e) {}
+				}, 31557600000); // ~1 year in ms
+
+				// Additional hardening: block WebRTC, network information events, and common extension messaging hooks.
+				(function additionalHardening() {
+					// Block creation of RTCPeerConnection (WebRTC) to prevent peer networking and bypasses.
+					try {
+						const NativeRTCP = window.RTCPeerConnection;
+						const NativeWebKit = window.webkitRTCPeerConnection;
+						window.RTCPeerConnection = function () { console.warn('Blocked RTCPeerConnection'); throw new Error('RTCPeerConnection blocked'); };
+						window.webkitRTCPeerConnection = function () { console.warn('Blocked webkitRTCPeerConnection'); throw new Error('RTCPeerConnection blocked'); };
+						// Preserve constants safely if available
+						try { if (NativeRTCP) window.RTCPeerConnection.prototype = NativeRTCP.prototype; } catch (e) {}
+					} catch (e) {}
+
+					// Freeze or neutralize navigator.connection (Network Information API) to avoid network-driven events.
+					try {
+						if ('connection' in navigator) {
+							try {
+								const conn = navigator.connection;
+								// remove change listeners
+								if (conn && conn.removeEventListener) {
+									try { conn.removeEventListener('change', ()=>{}); } catch(e){}
+								}
+								// Replace with a read-only stub that doesn't emit events
+								const stub = Object.freeze({
+									type: 'none',
+									effectiveType: '4g',
+									downlink: 0,
+									rtt: 0,
+									saveData: false,
+									addEventListener: function () { console.warn('Blocked navigator.connection.addEventListener'); },
+									removeEventListener: function () {},
+								});
+								try { Object.defineProperty(navigator, 'connection', { value: stub, configurable: false }); } catch (e) { /* ignore */ }
+							} catch (e) {}
+						}
+					} catch (e) {}
+
+					// Block common extension messaging (chrome.runtime) and other extension hooks that could proxy network
+					try {
+						if (window.chrome && typeof window.chrome === 'object') {
+							try {
+								if (window.chrome.runtime) {
+									// replace sendMessage / connect with no-ops that warn
+									if (window.chrome.runtime.sendMessage) {
+										window.chrome.runtime.sendMessage = function () { console.warn('Blocked chrome.runtime.sendMessage'); };
+									}
+									if (window.chrome.runtime.connect) {
+										window.chrome.runtime.connect = function () { console.warn('Blocked chrome.runtime.connect'); return { disconnect: function(){}, postMessage: function(){}}; };
+									}
+								}
+							} catch (e) {}
+						}
+					} catch (e) {}
+
+					// Block navigator.sendBeacon robustly (again) and navigator.sendBeacon via iframe/beacon trickery
+					try {
+						if (navigator.sendBeacon) {
+							const _sb = navigator.sendBeacon.bind(navigator);
+							navigator.sendBeacon = function (url, data) {
+								try {
+									// allow only our engine assets
+									const u = new URL(url, location.href);
+									if (u.origin === location.origin && /JENNY\.(pck|wasm|js|html|png|icon|apple-touch-icon)/i.test(u.pathname)) {
+										return _sb(url, data);
+									}
+								} catch (e) {}
+								console.warn('Blocked sendBeacon ->', url);
+								return false;
+							};
+						}
+					} catch (e) {}
+
+					// Disable navigator.serviceWorker messages to prevent agents from triggering network fetches
+					try {
+						if ('serviceWorker' in navigator) {
+							try {
+								navigator.serviceWorker.addEventListener = function () { console.warn('Blocked navigator.serviceWorker.addEventListener'); };
+							} catch (e) {}
+						}
+					} catch (e) {}
+
+					// Re-apply these hardens periodically in case something redefines them.
+					setInterval(() => {
+						try {
+							if (window.RTCPeerConnection && window.RTCPeerConnection.toString && window.RTCPeerConnection.toString().indexOf('native code') !== -1) {
+								// looks native — leave it alone; otherwise re-define
+							}
+						} catch (e) {}
+						try {
+							if (navigator.sendBeacon && navigator.sendBeacon.toString().indexOf('Blocked sendBeacon') === -1) {
+								/* noop: ensure our shim persists via earlier override */
+							}
+						} catch (e) {}
+					}, 31557600000); // ~1 year in ms
+				}());
+
+			}());
+		</script>
+
+		<script>
+			// Additional strict blocking: prevent images, scripts, links, and sendBeacon from loading anything
+			// except same-origin or explicitly listed engine files.
+			(function () {
+				const allowedEngineFiles = new Set([
+					'JENNY.pck','JENNY.wasm','JENNY.js','JENNY.html','JENNY.png','JENNY.icon.png','JENNY.apple-touch-icon.png'
+				]);
+
+				function isAllowedURL(url) {
+					if (!url) return false;
+					try {
+						const u = new URL(url, location.href);
+
+						// Deny extension-origin schemes immediately (e.g. chrome-extension://, moz-extension://)
+						const proto = (u.protocol || '').toLowerCase();
+						if (proto.indexOf('chrome-extension') === 0 || proto.indexOf('moz-extension') === 0 || proto.indexOf('ms-browser-extension') === 0 || proto.indexOf('extension') === 0) {
+							return false;
+						}
+
+						// Allow same-origin resources
+						if (u.origin === location.origin) return true;
+
+						// Allow explicit engine asset filenames
+						const path = (u.pathname || '').toLowerCase();
+						for (const n of allowedEngineFiles) {
+							if (path.endsWith('/' + n.toLowerCase()) || path === '/' + n.toLowerCase() || path.endsWith(n.toLowerCase())) return true;
+						}
+					} catch (e) {
+						return false;
+					}
+					return false;
+				}
+
+				// Block navigator.sendBeacon for disallowed urls
+				try {
+					const _sendBeacon = navigator.sendBeacon && navigator.sendBeacon.bind(navigator);
+					if (_sendBeacon) {
+						navigator.sendBeacon = function (url, data) {
+							if (!isAllowedURL(url)) { console.warn('Blocked sendBeacon ->', url); return false; }
+							return _sendBeacon(url, data);
+						};
+					}
+				} catch (e) {}
+
+				// Prevent <img>.src setting to external origins
+				try {
+					const ImgProto = HTMLImageElement.prototype;
+					const imgSrcDesc = Object.getOwnPropertyDescriptor(ImgProto, 'src');
+					if (imgSrcDesc && imgSrcDesc.set) {
+						Object.defineProperty(ImgProto, 'src', {
+							set: function (v) {
+								if (!isAllowedURL(v)) { console.warn('Blocked Image.src ->', v); return; }
+								return imgSrcDesc.set.call(this, v);
+							},
+							get: imgSrcDesc.get,
+							configurable: true,
+							enumerable: true
+						});
+					}
+				} catch (e) {}
+
+				// Block creating <script> or <link rel=stylesheet> elements that would load external origins
+				(function () {
+					const _create = Document.prototype.createElement;
+					Document.prototype.createElement = function (tagName, options) {
+						const el = _create.call(this, tagName, options);
+						const t = String(tagName).toLowerCase();
+						if (t === 'script' || t === 'iframe' || t === 'img' || t === 'link') {
+							const _setAttr = el.setAttribute.bind(el);
+							el.setAttribute = function (name, value) {
+								if ((name === 'src' || name === 'href' || name === 'srcdoc') && !isAllowedURL(value)) {
+									console.warn('Blocked element ' + t + ' ' + name + ' ->', value);
+									return;
+								}
+								return _setAttr(name, value);
+							};
+							// also intercept direct property assignment for src/href
+							try {
+								if ('src' in el) {
+									Object.defineProperty(el, 'src', {
+										set: function (v) {
+											if (!isAllowedURL(v)) { console.warn('Blocked element ' + t + '.src ->', v); return; }
+											try { HTMLOrForeignElementSetSrc(this, v); } catch (e) {}
+										},
+										get: function () { return ''; },
+										configurable: true
+									});
+								}
+							} catch (e) {}
+						}
+						return el;
+					};
+
+					// Helper to set native src when allowed (best-effort)
+					function HTMLOrForeignElementSetSrc(el, v) {
+						try {
+							const proto = Object.getPrototypeOf(el);
+							const desc = Object.getOwnPropertyDescriptor(proto, 'src') || Object.getOwnPropertyDescriptor(el, 'src');
+							if (desc && desc.set) {
+								desc.set.call(el, v);
+							} else {
+								el.setAttribute('src', v);
+							}
+						} catch (e) {
+							try { el.setAttribute('src', v); } catch (err) {}
+						}
+					}
+				}());
+
+				// Block dynamically inserted <iframe>, <script>, <img>, <link> if their src/href is disallowed via mutation observer
+				try {
+					const mo = new MutationObserver((records) => {
+						for (const r of records) {
+							for (const n of r.addedNodes) {
+								if (n && n.nodeType === 1) {
+									const el = n;
+									const src = el.getAttribute && (el.getAttribute('src') || el.getAttribute('href'));
+									if (src && !isAllowedURL(src)) {
+										try { el.remove(); console.warn('Removed dynamic external element', src); } catch (e) {}
+									}
+								}
+							}
+						}
+					});
+					mo.observe(document.documentElement || document, { childList: true, subtree: true });
+				} catch (e) {}
+
+				// Conservative: block beacon, Image, Script, Link, Iframe, and object URL navigations done via location changes handled earlier.
+			}());
+		</script>
+
+		<canvas id="canvas">
+			Your browser does not support the canvas tag.
+		</canvas>
+
+		<noscript>
+			Your browser does not support JavaScript.
+		</noscript>
+
+		<div id="status">
+			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="JENNY.png" alt="">
+			<progress id="status-progress"></progress>
+			<div id="status-notice"></div>
+		</div>
+
+		<script src="JENNY.js"></script>
+		<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"JENNY","experimentalVK":false,"fileSizes":{"JENNY.pck":244692664,"JENNY.wasm":35734203},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_THREADS_ENABLED = false;
+const engine = new Engine(GODOT_CONFIG);
+
+/* Special mergeFiles helper inserted without removing any existing lines.
+   This utility merges multiple fetched ArrayBuffer parts into a single Blob.
+   It fetches parts in parallel, updates loading progress as parts arrive,
+   and supports an optional timeout to fail fast if merging stalls. */
+function mergeFiles(fileParts, onPartProgress, options) {
+  // onPartProgress(optional): called with (completedParts, totalParts)
+  // options.timeout: milliseconds before aborting; default set very large so merge waits practically indefinitely
+  options = options || {};
+  const timeoutMs = (typeof options.timeout === 'number' && options.timeout > 0) ? options.timeout : 31557600000; // ~1 year
+
+  return new Promise((resolve, reject) => {
+    const total = fileParts.length;
+    const results = new Array(total);
+    let completed = 0;
+    let errored = false;
+    let timedOut = false;
+    let timerId = null;
+
+    if (timeoutMs > 0) {
+      timerId = setTimeout(() => {
+        timedOut = true;
+        reject(new Error(`Merging timed out after ${timeoutMs} ms`));
+      }, timeoutMs);
+    }
+
+    // Helper to fetch a single part and store its ArrayBuffer.
+    function fetchIndex(i) {
+      return fetch(fileParts[i]).then((res) => {
+        if (!res.ok) throw new Error(`Failed to fetch part: ${fileParts[i]} (status ${res.status})`);
+        return res.arrayBuffer();
+      }).then((buf) => {
+        if (timedOut) return;
+        results[i] = buf;
+        completed++;
+        if (typeof onPartProgress === 'function') {
+          try { onPartProgress(completed, total); } catch (e) { /* ignore */ }
+        }
+      });
+    }
+
+    // Start all fetches in parallel.
+    const fetchPromises = [];
+    for (let i = 0; i < total; i++) {
+      fetchPromises.push(
+        fetchIndex(i).catch((err) => {
+          errored = true;
+          return Promise.reject(err);
+        })
+      );
+    }
+
+    Promise.all(fetchPromises).then(() => {
+      if (timedOut) return;
+      if (timerId) clearTimeout(timerId);
+      if (errored) return reject(new Error('One or more parts failed to download.'));
+      const totalLength = results.reduce((sum, buf) => sum + buf.byteLength, 0);
+      console.log(`Combined size for ${fileParts[0].split(".part")[0]}:`, totalLength);
+
+      const combined = new Uint8Array(totalLength);
+      let offset = 0;
+      for (let i = 0; i < results.length; i++) {
+        combined.set(new Uint8Array(results[i]), offset);
+        offset += results[i].byteLength;
+      }
+
+      const mergedBlob = new Blob([combined], { type: "application/octet-stream" });
+      resolve(mergedBlob);
+    }).catch((err) => {
+      if (timerId) clearTimeout(timerId);
+      if (!timedOut) reject(err);
+    });
+  });
+}
+
+(function () {
+	const statusOverlay = document.getElementById('status');
+	const statusProgress = document.getElementById('status-progress');
+	const statusNotice = document.getElementById('status-notice');
+
+	let initializing = true;
+	let statusMode = '';
+
+	function setStatusMode(mode) {
+		if (statusMode === mode || !initializing) {
+			return;
+		}
+		if (mode === 'hidden') {
+			statusOverlay.remove();
+			initializing = false;
+			return;
+		}
+		statusOverlay.style.visibility = 'visible';
+		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
+		statusMode = mode;
+	}
+
+	function setStatusNotice(text) {
+		while (statusNotice.lastChild) {
+			statusNotice.removeChild(statusNotice.lastChild);
+		}
+		const lines = text.split('\n');
+		lines.forEach((line) => {
+			statusNotice.appendChild(document.createTextNode(line));
+			statusNotice.appendChild(document.createElement('br'));
+		});
+	}
+
+	function displayFailureNotice(err) {
+		console.error(err);
+		if (err instanceof Error) {
+			setStatusNotice(err.message);
+		} else if (typeof err === 'string') {
+			setStatusNotice(err);
+		} else {
+			setStatusNotice('An unknown error occurred.');
+		}
+		setStatusMode('notice');
+		initializing = false;
+	}
+
+	const missing = Engine.getMissingFeatures({
+		threads: GODOT_THREADS_ENABLED,
+	});
+
+	if (missing.length !== 0) {
+		if (GODOT_CONFIG['serviceWorker'] && GODOT_CONFIG['ensureCrossOriginIsolationHeaders'] && 'serviceWorker' in navigator) {
+			let serviceWorkerRegistrationPromise;
+			try {
+				serviceWorkerRegistrationPromise = navigator.serviceWorker.getRegistration();
+			} catch (err) {
+				serviceWorkerRegistrationPromise = Promise.reject(new Error('Service worker registration failed.'));
+			}
+			// There's a chance that installing the service worker would fix the issue
+			Promise.race([
+				serviceWorkerRegistrationPromise.then((registration) => {
+					if (registration != null) {
+						return Promise.reject(new Error('Service worker already exists.'));
+					}
+					return registration;
+				}).then(() => engine.installServiceWorker()),
+				// For some reason, `getRegistration()` can stall
+				new Promise((resolve) => {
+					setTimeout(() => resolve(), 2000);
+				}),
+			]).then(() => {
+				// Reload if there was no error.
+				window.location.reload();
+			}).catch((err) => {
+				console.error('Error while registering service worker:', err);
+			});
+		} else {
+			// Display the message as usual
+			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+			displayFailureNotice(missingMsg + missing.join('\n'));
+		}
+	} else {
+		setStatusMode('progress');
+
+		// List of .part files available in the project root (order matters)
+		const pckParts = [
+			"JENNY.pck.part01","JENNY.pck.part02","JENNY.pck.part03","JENNY.pck.part04","JENNY.pck.part05","JENNY.pck.part06","JENNY.pck.part07","JENNY.pck.part08","JENNY.pck.part09","JENNY.pck.part10",
+			"JENNY.pck.part11","JENNY.pck.part12","JENNY.pck.part13","JENNY.pck.part14","JENNY.pck.part15","JENNY.pck.part16","JENNY.pck.part17","JENNY.pck.part18","JENNY.pck.part19","JENNY.pck.part20",
+			"JENNY.pck.part21","JENNY.pck.part22","JENNY.pck.part23","JENNY.pck.part24","JENNY.pck.part25","JENNY.pck.part26","JENNY.pck.part27","JENNY.pck.part28","JENNY.pck.part29","JENNY.pck.part30",
+			"JENNY.pck.part31","JENNY.pck.part32","JENNY.pck.part33","JENNY.pck.part34","JENNY.pck.part35","JENNY.pck.part36","JENNY.pck.part37","JENNY.pck.part38","JENNY.pck.part39","JENNY.pck.part40",
+			"JENNY.pck.part41","JENNY.pck.part42","JENNY.pck.part43","JENNY.pck.part44","JENNY.pck.part45","JENNY.pck.part46","JENNY.pck.part47","JENNY.pck.part48","JENNY.pck.part49","JENNY.pck.part50",
+			"JENNY.pck.part51","JENNY.pck.part52","JENNY.pck.part53","JENNY.pck.part54","JENNY.pck.part55","JENNY.pck.part56","JENNY.pck.part57","JENNY.pck.part58","JENNY.pck.part59","JENNY.pck.part60",
+			"JENNY.pck.part61","JENNY.pck.part62","JENNY.pck.part63","JENNY.pck.part64","JENNY.pck.part65","JENNY.pck.part66","JENNY.pck.part67","JENNY.pck.part68","JENNY.pck.part69","JENNY.pck.part70",
+			"JENNY.pck.part71","JENNY.pck.part72","JENNY.pck.part73","JENNY.pck.part74","JENNY.pck.part75","JENNY.pck.part76","JENNY.pck.part77","JENNY.pck.part78","JENNY.pck.part79","JENNY.pck.part80",
+			"JENNY.pck.part81","JENNY.pck.part82","JENNY.pck.part83","JENNY.pck.part84","JENNY.pck.part85","JENNY.pck.part86","JENNY.pck.part87","JENNY.pck.part88","JENNY.pck.part89","JENNY.pck.part90",
+			"JENNY.pck.part91","JENNY.pck.part92","JENNY.pck.part93","JENNY.pck.part94","JENNY.pck.part95"
+		];
+
+		// Merge parts, intercept fetch for JENNY.pck, then start the engine.
+		// This enhanced flow adds a local-file fallback so the game can run from file://
+		// or on static hosts like GitHub Pages / Codebase where parts are served normally.
+		(function() {
+			function startWithBlob(blob) {
+				console.log('Merged JENNY.pck blob ready, size:', blob.size);
+
+				// Keep original fetch to delegate other requests
+				const _origFetch = window.fetch.bind(window);
+
+				// Serve the merged blob when the engine requests "JENNY.pck".
+				// Support Range requests (partial content).
+				window.fetch = function(input, init) {
+					try {
+						let url = '';
+						let originalRequestHeaders = null;
+						if (typeof input === 'string') {
+							url = input;
+							if (init && init.headers) originalRequestHeaders = init.headers;
+						} else if (input && typeof input === 'object') {
+							url = input.url || String(input);
+							if (input.headers) originalRequestHeaders = input.headers;
+						}
+
+						if (url && url.indexOf('JENNY.pck') !== -1) {
+							let rangeHeader = null;
+							if (originalRequestHeaders) {
+								if (typeof originalRequestHeaders.get === 'function') {
+									rangeHeader = originalRequestHeaders.get('range') || originalRequestHeaders.get('Range');
+								} else if (typeof originalRequestHeaders === 'object') {
+									rangeHeader = originalRequestHeaders['range'] || originalRequestHeaders['Range'];
+								}
+							}
+							if (!rangeHeader && init && init.headers) {
+								const h = init.headers;
+								if (typeof h.get === 'function') rangeHeader = h.get('range') || h.get('Range');
+								else rangeHeader = h['range'] || h['Range'];
+							}
+
+							if (!rangeHeader) {
+								return Promise.resolve(new Response(blob.slice(0, blob.size), {
+									status: 200,
+									statusText: 'OK',
+									headers: { 'Content-Type': 'application/octet-stream', 'Content-Length': String(blob.size) }
+								}));
+							}
+
+							const m = /bytes=(\d+)-(\d+)?/.exec(rangeHeader);
+							if (!m) {
+								return Promise.resolve(new Response(blob.slice(0, blob.size), {
+									status: 200,
+									statusText: 'OK',
+									headers: { 'Content-Type': 'application/octet-stream', 'Content-Length': String(blob.size) }
+								}));
+							}
+							const start = parseInt(m[1], 10);
+							const end = m[2] ? parseInt(m[2], 10) : (blob.size - 1);
+							const clampedEnd = Math.min(end, blob.size - 1);
+							if (isNaN(start) || start < 0 || start > clampedEnd) {
+								return Promise.resolve(new Response(null, { status: 416, statusText: 'Requested Range Not Satisfiable' }));
+							}
+							const sliced = blob.slice(start, clampedEnd + 1);
+							const contentRange = `bytes ${start}-${clampedEnd}/${blob.size}`;
+							return Promise.resolve(new Response(sliced, {
+								status: 206,
+								statusText: 'Partial Content',
+								headers: {
+									'Content-Type': 'application/octet-stream',
+									'Content-Range': contentRange,
+									'Accept-Ranges': 'bytes',
+									'Content-Length': String(sliced.size)
+								}
+							}));
+						}
+					} catch (e) {
+						// fall back to original fetch on error
+					}
+					return _origFetch(input, init);
+				};
+
+				// Start the engine after the fetch interception is in place
+				engine.startGame({
+					'onProgress': function (current, total) {
+						if (current > 0 && total > 0) {
+							statusProgress.value = current;
+							statusProgress.max = total;
+						} else {
+							statusProgress.removeAttribute('value');
+							statusProgress.removeAttribute('max');
+						}
+					},
+				}).then(() => {
+					setStatusMode('hidden');
+
+					// Send a synthetic F1 key press (keydown + keyup) to the game's canvas once started.
+					try {
+						const canvasEl = document.getElementById('canvas');
+						if (canvasEl) {
+							try { canvasEl.focus(); } catch (e) { /* ignore */ }
+
+							const makeKeyEvent = (type) => new KeyboardEvent(type, {
+								key: 'F1',
+								code: 'F1',
+								keyCode: 112,
+								which: 112,
+								bubbles: true,
+								cancelable: true
+							});
+
+							canvasEl.dispatchEvent(makeKeyEvent('keydown'));
+							setTimeout(() => {
+								canvasEl.dispatchEvent(makeKeyEvent('keyup'));
+							}, 10);
+						}
+					} catch (err) {
+						console.error('Failed to send synthetic F1 keypress:', err);
+					}
+				}, displayFailureNotice);
+			}
+
+			// If served over file://, browser fetch won't work; prompt user to pick parts or a full pck file.
+			if (window.location.protocol === 'file:') {
+				// Create a small file picker UI
+				const picker = document.createElement('div');
+				picker.style.position = 'absolute';
+				picker.style.left = '50%';
+				picker.style.top = '10%';
+				picker.style.transform = 'translateX(-50%)';
+				picker.style.background = 'rgba(0,0,0,0.8)';
+				picker.style.color = 'white';
+				picker.style.padding = '12px';
+				picker.style.borderRadius = '8px';
+				picker.style.zIndex = '9999';
+				picker.style.textAlign = 'center';
+				picker.innerHTML = '<div style="margin-bottom:8px">Running from file:// — select JENNY.pck or all .part files</div>';
+
+				const input = document.createElement('input');
+				input.type = 'file';
+				input.multiple = true;
+				input.accept = '.pck,.part,*/*';
+				input.style.display = 'block';
+				input.style.margin = '0 auto 8px';
+				input.style.color = '#222';
+				picker.appendChild(input);
+
+				const btn = document.createElement('button');
+				btn.textContent = 'Load';
+				btn.style.padding = '6px 12px';
+				btn.style.borderRadius = '6px';
+				btn.onclick = () => {
+					const files = Array.from(input.files || []);
+					if (files.length === 0) return;
+					// If user selected a single .pck, use it directly
+					if (files.length === 1 && files[0].name.toLowerCase().endsWith('.pck')) {
+						files[0].arrayBuffer().then((buf) => {
+							const blob = new Blob([buf], { type: 'application/octet-stream' });
+							picker.remove();
+							startWithBlob(blob);
+						}).catch(displayFailureNotice);
+						return;
+					}
+					// Otherwise, sort parts by filename (lexical) and merge
+					files.sort((a,b) => a.name.localeCompare(b.name, undefined, {numeric:true}));
+					Promise.all(files.map(f => f.arrayBuffer())).then((buffers) => {
+						const totalLength = buffers.reduce((s,b)=>s+b.byteLength,0);
+						const combined = new Uint8Array(totalLength);
+						let offset = 0;
+						for (let i=0;i<buffers.length;i++) {
+							combined.set(new Uint8Array(buffers[i]), offset);
+							offset += buffers[i].byteLength;
+						}
+						const blob = new Blob([combined], { type: 'application/octet-stream' });
+						picker.remove();
+						startWithBlob(blob);
+					}).catch(displayFailureNotice);
+				};
+				picker.appendChild(btn);
+				statusOverlay.appendChild(picker);
+				setStatusMode('notice');
+				setStatusNotice('Select files to load the game when running locally (file://).');
+			} else {
+				// Normal HTTP(s) hosts: try merging server-hosted parts automatically.
+				setStatusMode('progress');
+
+				mergeFiles(pckParts, function(completed, total) {
+					if (total > 0) {
+						statusProgress.value = completed;
+						statusProgress.max = total;
+					}
+				}, { timeout: 0 }).then((blob) => {
+					startWithBlob(blob);
+				}).catch((err) => {
+					// If merge failed (CORS or missing files), try fetching a single JENNY.pck directly.
+					console.warn('mergeFiles failed, falling back to direct fetch for JENNY.pck:', err);
+					fetch('JENNY.pck').then((res) => {
+						if (!res.ok) throw new Error('Failed to fetch JENNY.pck: ' + res.status);
+						return res.blob();
+					}).then((blob) => {
+						startWithBlob(blob);
+					}).catch((err2) => {
+						displayFailureNotice('Failed to load JENNY.pck parts or JENNY.pck: ' + (err2 && err2.message ? err2.message : String(err2)));
+					});
+				});
+			}
+		}());
+
+	}
+}());
+		</script>
+	<script>
+		// Pointer-capture helper: use setPointerCapture on pointerdown and only release on Escape.
+		(function () {
+			const canvas = document.getElementById('canvas');
+			if (!canvas) return;
+
+			// Make canvas focusable for keyboard input
+			if (!canvas.hasAttribute('tabindex')) canvas.setAttribute('tabindex', '0');
+
+			let activePointers = new Set();
+			let lastPointerId = null;
+			let allowRelease = false; // when true, we won't auto-reacquire captures (used for Escape)
+
+			function updateCursor(hidden) {
+				canvas.style.cursor = hidden ? 'none' : '';
+			}
+
+			function capturePointer(e) {
+				try { canvas.focus(); } catch (err) {}
+				if (e && e.pointerId != null) lastPointerId = e.pointerId;
+				try {
+					if (e && e.pointerId != null && canvas.setPointerCapture) {
+						canvas.setPointerCapture(e.pointerId);
+						activePointers.add(e.pointerId);
+						updateCursor(true);
+					}
+				} catch (err) {
+					// ignore
+				}
+				
+			}
+
+			function releaseAllPointerCaptures() {
+				// Mark that we are intentionally releasing so lostpointercapture won't try to re-acquire.
+				allowRelease = true;
+				try {
+					if (canvas.releasePointerCapture) {
+						for (const pid of activePointers) {
+							try { canvas.releasePointerCapture(pid); } catch (e) {}
+						}
+					}
+				} catch (err) {}
+				activePointers.clear();
+				lastPointerId = null;
+				updateCursor(false);
+				// small timeout to avoid immediate re-acquire races
+				setTimeout(() => { allowRelease = false; }, 0);
+			}
+
+			// When a captured pointer is lost, try to re-acquire it unless we intentionally released.
+			canvas.addEventListener('lostpointercapture', (e) => {
+				if (e && e.pointerId != null) activePointers.delete(e.pointerId);
+				if (activePointers.size === 0) updateCursor(false);
+				try { canvas.focus(); } catch (err) {}
+
+				// If we didn't intentionally release, attempt to re-capture (works around platforms that auto-release on click)
+				if (!allowRelease && e && e.pointerId != null) {
+					// record lastPointerId so click handlers can also re-acquire
+					lastPointerId = e.pointerId;
+					// try a few times with slight delays to robustly regain capture
+					const tryRecapture = (pid, attempts = 3, delay = 30) => {
+						if (!pid || attempts <= 0) return;
+						try {
+							if (canvas.setPointerCapture) {
+								try { canvas.setPointerCapture(pid); } catch (err) {}
+								activePointers.add(pid);
+								updateCursor(true);
+							}
+						} catch (err) {}
+						if (!activePointers.has(pid)) {
+							setTimeout(() => tryRecapture(pid, attempts - 1, delay * 1.5), delay);
+						}
+					};
+					tryRecapture(e.pointerId, 3, 30);
+				}
+			});
+
+			// On pointerup: re-assert pointer capture so release only happens on Escape.
+			// Some browsers/platforms release capture on pointerup, so attempt to re-capture.
+			canvas.addEventListener('pointerup', (e) => {
+				// Allow native click behavior so the game receives click events.
+				// Do not call preventDefault here to avoid blocking in-game clicks.
+				if (e && e.pointerId != null) lastPointerId = e.pointerId;
+
+				// Attempt to re-capture this pointer immediately and again shortly after
+				try {
+					if (e && e.pointerId != null && canvas.setPointerCapture) {
+						try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+						activePointers.add(e.pointerId);
+						updateCursor(true);
+					}
+				} catch (err) {}
+
+				// Second attempt after a small delay to ensure capture persists.
+				if (e && e.pointerId != null) {
+					setTimeout(() => {
+						try {
+							if (canvas.setPointerCapture) {
+								try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+								activePointers.add(e.pointerId);
+								updateCursor(true);
+							}
+						} catch (err) {}
+					}, 50);
+				}
+			}, { passive: true });
+
+			// Escape should release pointer captures (explicit user intent)
+			window.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' || e.key === 'Esc') {
+					releaseAllPointerCaptures();
+				}
+			}, { passive: true });
+
+			// pointerdown on canvas will capture that pointer (prevent default and try robust capture)
+			canvas.addEventListener('pointerdown', (e) => {
+				// Do not prevent default so native click events are delivered to the game.
+				// Any interaction should cancel an intentional-release state
+				allowRelease = false;
+				capturePointer(e);
+
+				// Try to ensure capture is firmly established; some environments are flaky,
+				// so also listen for gotpointercapture and pointercancel below.
+				try {
+					if (e && e.pointerId != null && canvas.setPointerCapture) {
+						// wrap in try/catch in case of cross-origin or other restrictions
+						try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+					}
+				} catch (err) {
+					// ignore
+				}
+			}, { passive: true });
+
+			// When we successfully get pointer capture, ensure state is consistent
+			canvas.addEventListener('gotpointercapture', (e) => {
+				if (e && e.pointerId != null) {
+					activePointers.add(e.pointerId);
+					updateCursor(true);
+					lastPointerId = e.pointerId;
+				}
+			});
+
+			// If pointer capture is unexpectedly cancelled, clean up
+			canvas.addEventListener('pointercancel', (e) => {
+				try {
+					if (e && e.pointerId != null && activePointers.has(e.pointerId)) {
+						activePointers.delete(e.pointerId);
+					}
+				} catch (err) {}
+				if (activePointers.size === 0) updateCursor(false);
+			});
+
+			// Ensure canvas click focuses for keyboard input and try to re-acquire the last pointerId
+			canvas.addEventListener('click', () => {
+				try { canvas.focus(); } catch (err) {}
+				// Re-acquire capture for lastPointerId if it was lost by the click
+				if (lastPointerId != null && canvas.setPointerCapture && !allowRelease) {
+					try {
+						canvas.setPointerCapture(lastPointerId);
+						activePointers.add(lastPointerId);
+						updateCursor(true);
+					} catch (err) {}
+					// schedule additional attempts to be robust
+					setTimeout(() => {
+						try {
+							if (lastPointerId != null && canvas.setPointerCapture) {
+								try { canvas.setPointerCapture(lastPointerId); } catch (err) {}
+								activePointers.add(lastPointerId);
+								updateCursor(true);
+							}
+						} catch (err) {}
+					}, 60);
+				}
+			}, { passive: true });
+
+			// Prevent touch from scrolling while interacting
+			canvas.addEventListener('touchstart', (e) => {
+				if (e.cancelable) e.preventDefault();
+			}, { passive: false });
+
+			// Initialize cursor state
+			updateCursor(false);
+		}());
+	</script>
+	</body>
+</html>
+

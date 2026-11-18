@@ -1,0 +1,76 @@
+{
+  "slug": "pizza-tower-scoutdigo",
+  "title": "Pizza Tower: Scoutdigo",
+  "type": "HTML",
+  "developer": "",
+  "description": "",
+  "tags": [],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "truffled:/gamefile/pts.html",
+  "source": "truffled",
+  "sourceVersion": "1",
+  "sourceUrl": "https://truffled.lol/gamefile/pts.html",
+  "sourceThumbnail": "https://truffled.lol/png/games/pts.webp",
+  "baseUrl": "https://truffled.lol/gamefile/",
+  "entry": "/pts.html",
+  "entryUrl": "https://truffled.lol/gamefile/pts.html",
+  "status": "done",
+  "sizeBytes": 325879546,
+  "assetCount": 24,
+  "known404": [
+    "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.ogg",
+    "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.wav",
+    "https://cdn.jsdelivr.net/images/AvatarPlaceholder.png",
+    "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/datafile_runner.data",
+    "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.mp3"
+  ],
+  "failed": [
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.ogg",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.ogg",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.wav",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.wav",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/images/AvatarPlaceholder.png",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/images/AvatarPlaceholder.png",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/datafile_runner.data",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/datafile_runner.data",
+      "status": 404
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.mp3",
+      "error": "HTTP 404 for https://cdn.jsdelivr.net/gh/web-ports/scoutdingo@main/.mp3",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-11-17T17:55:57.224Z",
+  "verifiedAt": "2026-11-17T17:56:08.485Z",
+  "verification": {
+    "external": 1,
+    "blocking": 0,
+    "ignoredExternal": 1,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 3,
+    "title": "Scoutdigo: They've trapped me in the window title... please help!",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 960,
+      "height": 540
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.0687,
+    "rendered": true
+  }
+}

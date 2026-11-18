@@ -1,0 +1,101 @@
+{
+  "slug": "jenny",
+  "title": "JENNY",
+  "type": "HTML",
+  "developer": "Impossible Things",
+  "description": "\"Unauthorized protective equipment constitutes obstruction of suffering. Regulation requires unmitigated harm.\" Jenny Jeungman's little town buckles under bureaucracy and post-lapinist architecture more aligned with the tastes of demons than rabbits. Now she's caught in a system that rewrites reality and it's up to HER (you) to stop this lunacy! Say hi, Jenny! Die.",
+  "tags": [
+    "Shooter",
+    "Action",
+    "Top-Down",
+    "Arcade",
+    "Indie"
+  ],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "367dc613-9871-4df7-b8e7-0af386416ad0",
+  "sourceVersion": "JUL.2026.30",
+  "sourceUrl": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/index.html",
+  "baseUrl": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/",
+  "entry": "/index.html",
+  "entryUrl": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/index.html",
+  "status": "done",
+  "sizeBytes": 284749950,
+  "assetCount": 206,
+  "known404": [
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/JENNY.pck",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.pck",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/godot.audio.position.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/godot.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.audio.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.js",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.audio.position.worklet.js",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.side.wasm",
+    "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.wasm"
+  ],
+  "failed": [
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/JENNY.pck",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/JENNY.pck",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.pck",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.pck",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/godot.audio.position.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/godot.audio.position.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/godot.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/godot.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.audio.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.audio.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.audio.position.worklet.js",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.audio.position.worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.side.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.side.wasm",
+      "status": 404
+    },
+    {
+      "url": "https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.wasm",
+      "error": "HTTP 404 for https://playobsidian.com/cdn/assets/html/367dc613-9871-4df7-b8e7-0af386416ad0/JUL.2026.30/.wasm",
+      "status": 404
+    }
+  ],
+  "mirroredAt": "2026-10-26T11:36:14.026Z",
+  "verifiedAt": "2026-11-16T15:45:47.045Z",
+  "verification": {
+    "external": 0,
+    "blocking": 0,
+    "ignoredExternal": 0,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 2,
+    "title": "",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": null,
+    "nonBlack": null,
+    "screenshotNonBlack": 1,
+    "rendered": true
+  }
+}

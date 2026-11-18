@@ -1,0 +1,93 @@
+{
+  "slug": "pizza-tower",
+  "title": "Pizza Tower",
+  "type": "HTML",
+  "developer": "",
+  "description": "",
+  "tags": [],
+  "controls": [],
+  "gamepadControls": [],
+  "controllerSupport": false,
+  "sourceId": "truffled:/games/NoiseUpdate/index.html",
+  "source": "truffled",
+  "sourceVersion": "1",
+  "sourceUrl": "https://truffled.lol/games/NoiseUpdate/index.html",
+  "sourceThumbnail": "https://truffled.lol/png/games/pizzatower.webp",
+  "baseUrl": "https://truffled.lol/games/NoiseUpdate/",
+  "entry": "/index.html",
+  "entryUrl": "https://truffled.lol/games/NoiseUpdate/index.html",
+  "status": "done",
+  "sizeBytes": 51612302,
+  "assetCount": 23,
+  "known404": [
+    "https://truffled.lol/games/NoiseUpdate/audio-worklet.js",
+    "https://truffled.lol/games/NoiseUpdate/datafile_runner.data",
+    "https://truffled.lol/assets/credits.txt",
+    "https://truffled.lol/assets/noisecredits.txt",
+    "https://truffled.lol/assets/lang/english.txt",
+    "https://truffled.lol/assets/licenses/gameframe_license.txt",
+    "https://truffled.lol/images/AvatarPlaceholder.png"
+  ],
+  "failed": [
+    {
+      "url": "https://truffled.lol/games/NoiseUpdate/audio-worklet.js",
+      "error": "HTTP 404 for https://truffled.lol/games/NoiseUpdate/audio-worklet.js",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/games/NoiseUpdate/datafile_runner.data",
+      "error": "HTTP 404 for https://truffled.lol/games/NoiseUpdate/datafile_runner.data",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/assets/credits.txt",
+      "error": "HTTP 404 for https://truffled.lol/assets/credits.txt",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/assets/noisecredits.txt",
+      "error": "HTTP 404 for https://truffled.lol/assets/noisecredits.txt",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/assets/lang/english.txt",
+      "error": "HTTP 404 for https://truffled.lol/assets/lang/english.txt",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/assets/licenses/gameframe_license.txt",
+      "error": "HTTP 404 for https://truffled.lol/assets/licenses/gameframe_license.txt",
+      "status": 404
+    },
+    {
+      "url": "https://truffled.lol/images/AvatarPlaceholder.png",
+      "error": "HTTP 404 for https://truffled.lol/images/AvatarPlaceholder.png",
+      "status": 404
+    },
+    {
+      "url": "(crawl)",
+      "error": "crawl stalled; abandoned hung downloads",
+      "status": 0
+    }
+  ],
+  "mirroredAt": "2026-11-17T17:54:24.806Z",
+  "verifiedAt": "2026-11-18T07:02:53.105Z",
+  "verification": {
+    "external": 0,
+    "blocking": 0,
+    "ignoredExternal": 0,
+    "local404": 0,
+    "expected404": 0,
+    "failures": 1,
+    "title": "Pizza Tower 1.1.0 Web Port",
+    "crossOriginIsolated": true,
+    "sharedArrayBuffer": "function",
+    "canvas": {
+      "width": 1920,
+      "height": 1080
+    },
+    "nonBlack": 0,
+    "screenshotNonBlack": 0.9058,
+    "rendered": true
+  }
+}
